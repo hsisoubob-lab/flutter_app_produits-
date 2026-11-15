@@ -45,11 +45,11 @@ class DetailsProduit extends StatelessWidget {
             Text("Nom : ${produit.nom}",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
-            Text("Prix : ${produit.prix} \$", style: TextStyle(fontSize: 18)),
+            Text("Description : ${produit.description}",
+                style: TextStyle(fontSize: 16)),
             SizedBox(height: 10),
-            Text("Description :", style: TextStyle(fontSize: 18)),
-            SizedBox(height: 5),
-            Text(produit.description, style: TextStyle(fontSize: 16)),
+            Text("Prix : ${produit.prix.toStringAsFixed(1)} \$",
+                style: TextStyle(fontSize: 18, color: Colors.green)),
           ],
         ),
       ),
@@ -67,13 +67,18 @@ class ListProduits extends StatelessWidget {
       prix: 1200.0,
     ),
     Produit(
-      nom: "Smartphone",
-      description: "Téléphone nouvelle génération avec triple caméra.",
-      prix: 900.0,
+      nom: "Casque son JBL",
+      description: "Casque sans fil JBL avec un son puissant.",
+      prix: 375.0,
     ),
     Produit(
-      nom: "Casque Bluetooth",
-      description: "Casque sans fil avec réduction de bruit.",
+      nom: "Chaise de bureau Arhaus",
+      description: "Chaise de bureau ergonomique de qualité Arhaus de gaming",
+      prix: 780.0,
+    ),
+    Produit(
+      nom: "Souris sans fil Logitech",
+      description: "Souris sans fil précise et confortable.",
       prix: 150.0,
     ),
   ];
@@ -81,7 +86,7 @@ class ListProduits extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Liste de Produits")),
+      appBar: AppBar(title: Text("Liste des produits")),
       body: ListView.builder(
         itemCount: produits.length,
         itemBuilder: (context, index) {
@@ -91,8 +96,8 @@ class ListProduits extends StatelessWidget {
             margin: EdgeInsets.all(10),
             child: ListTile(
               title: Text(produit.nom,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              subtitle: Text("${produit.prix} \$"),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              subtitle: Text("${produit.prix.toStringAsFixed(1)} \$"),
               trailing: ElevatedButton(
                 child: Text("Voir"),
                 onPressed: () {
